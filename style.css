@@ -97,6 +97,12 @@ a:hover {
 	outline-offset: 2px;
 }
 
+.email {
+	color: var(--muted);
+	display: block;
+	margin-top: 4px;
+}
+
 .contacts {
 	margin-top: 10px;
 }
@@ -108,6 +114,7 @@ a:hover {
 	border-radius: 8px;
 	width: fit-content;
 	list-style: none;
+	transition: color 0.2s ease;
 }
 
 .contacts summary::-webkit-details-marker {
@@ -115,9 +122,16 @@ a:hover {
 }
 
 .contacts summary::before {
-	content: '▸ ';
+	content: '';
 	display: inline-block;
-	transition: transform 0.2s;
+	width: 0;
+	height: 0;
+	border-left: 5px solid currentColor;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	margin-right: 8px;
+	transition: transform 0.2s ease;
+	vertical-align: middle;
 }
 
 .contacts[open] summary::before {
@@ -131,19 +145,30 @@ a:hover {
 .contact-list {
 	list-style: none;
 	padding: 0;
-	margin: 8px 0 0;
+	margin: 0;
+	padding-left: 24px;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.2s ease, margin 0.2s ease;
+	overflow: hidden;
+}
+
+.contacts[open] .contact-list {
+	grid-template-rows: 1fr;
+	margin-top: 8px;
+}
+
+.contact-list>div {
+	min-height: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 }
 
-.contact-list li {
-	padding-left: 24px;
-}
-
 .contact-list a {
 	color: var(--muted);
 	font-size: 15px;
+	transition: color 0.2s ease;
 }
 
 .contact-list a:hover {

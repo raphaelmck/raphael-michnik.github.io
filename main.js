@@ -52,17 +52,21 @@ function render() {
 window.addEventListener("hashchange", render);
 render();
 
-// Theme switching
-const themeToggle = document.getElementById("theme-toggle");
+// Theme switching - initialize immediately
 const root = document.documentElement;
-
-// Load saved theme or default to dark
 const savedTheme = localStorage.getItem("theme") || "dark";
 root.setAttribute("data-theme", savedTheme);
 
-themeToggle.addEventListener("click", () => {
-  const currentTheme = root.getAttribute("data-theme");
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", newTheme);
-  localStorage.setItem("theme", newTheme);
+// Wait for DOM to be ready
+document.addEventListener("DOMContentLoaded", () => {
+	const themeToggle = document.getElementById("theme-toggle");
+	
+	if (themeToggle) {
+		themeToggle.addEventListener("click", () => {
+			const currentTheme = root.getAttribute("data-theme");
+			const newTheme = currentTheme === "dark" ? "light" : "dark";
+			root.setAttribute("data-theme", newTheme);
+			localStorage.setItem("theme", newTheme);
+		});
+	}
 });

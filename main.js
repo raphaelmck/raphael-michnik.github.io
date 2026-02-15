@@ -34,19 +34,19 @@ const pages = {
 };
 
 function currentRoute() {
-	const hash = (location.hash || "#home").replace("#", "");
-	return pages[hash] ? hash : "home";
+  const hash = (location.hash || "#home").replace("#", "");
+  return pages[hash] ? hash : "home";
 }
 
 function render() {
-	const route = currentRoute();
-	content.innerHTML = pages[route]();
-	content.focus({ preventScroll: true });
+  const route = currentRoute();
+  content.innerHTML = pages[route]();
+  content.focus({ preventScroll: true });
 
-	tabs.forEach(t => {
-		const on = t.dataset.route === route;
-		t.setAttribute("aria-current", on ? "page" : "false");
-	});
+  tabs.forEach(t => {
+    const on = t.dataset.route === route;
+    t.setAttribute("aria-current", on ? "page" : "false");
+  });
 }
 
 window.addEventListener("hashchange", render);

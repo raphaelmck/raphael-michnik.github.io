@@ -2,46 +2,33 @@ const content = document.getElementById("content");
 const tabs = Array.from(document.querySelectorAll(".tab"));
 
 const pages = {
-	home: () => `
+  home: () => `
     <h1>Hi, I'm Raphaël.</h1>
     <p class="muted">Short one-liner about what you do.</p>
     <p>
-      I’m interested in <a href="#research">probability</a>, theoretical CS, and quantum information.
+      I'm interested in <a href="#work">probability</a>, theoretical CS, and quantum information.
     </p>
   `,
-	research: () => `
-    <h1>Research</h1>
-    <p class="muted">A sentence or two about your research direction.</p>
+  work: () => `
+    <h1>Work</h1>
+    <p class="muted">A sentence or two about your research and projects.</p>
 
     <ul class="list">
       <li>
-        <div class="item-title"><a href="#">Paper title one</a></div>
-        <div class="item-meta">2026 · with Coauthor</div>
+        <div class="item-title"><a href="#">Project or paper title</a></div>
+        <div class="item-meta">2026 · Description or collaborators</div>
       </li>
       <li>
-        <div class="item-title"><a href="#">Paper title two</a></div>
-        <div class="item-meta">2025 · preprint</div>
+        <div class="item-title"><a href="#">Another work item</a></div>
+        <div class="item-meta">2025 · Description</div>
       </li>
     </ul>
   `,
-	projects: () => `
-    <h1>Projects</h1>
-    <ul class="list">
-      <li>
-        <div class="item-title"><a href="#">Project name</a></div>
-        <div class="item-meta">One-line description.</div>
-      </li>
-      <li>
-        <div class="item-title"><a href="#">Another project</a></div>
-        <div class="item-meta">One-line description.</div>
-      </li>
-    </ul>
-  `,
-	colophon: () => `
-    <h1>Colophon</h1>
-    <p class="muted">How this site is built.</p>
+  mistk: () => `
+    <h1>mistk</h1>
+    <p class="muted">Description of mistk.</p>
     <p>
-      Built with plain HTML/CSS/JS. Hosted on GitHub Pages.
+      Content about mistk goes here.
     </p>
   `,
 };

@@ -97,6 +97,59 @@ a:hover {
 	outline-offset: 2px;
 }
 
+.contacts {
+	margin-top: 10px;
+}
+
+.contacts summary {
+	cursor: pointer;
+	color: var(--muted);
+	padding: 6px 8px;
+	border-radius: 8px;
+	width: fit-content;
+	list-style: none;
+}
+
+.contacts summary::-webkit-details-marker {
+	display: none;
+}
+
+.contacts summary::before {
+	content: '▸ ';
+	display: inline-block;
+	transition: transform 0.2s;
+}
+
+.contacts[open] summary::before {
+	transform: rotate(90deg);
+}
+
+.contacts summary:hover {
+	color: var(--fg);
+}
+
+.contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 8px 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.contact-list li {
+	padding-left: 24px;
+}
+
+.contact-list a {
+	color: var(--muted);
+	font-size: 15px;
+}
+
+.contact-list a:hover {
+	color: var(--fg);
+}
+
 .main {
 	max-width: var(--max);
 	padding-top: 4px;

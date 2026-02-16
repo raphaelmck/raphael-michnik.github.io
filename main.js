@@ -3,7 +3,6 @@ const tabs = Array.from(document.querySelectorAll(".tab"));
 
 const pages = {
   home: () => `
-    <h1>Hi, I'm Raphaël.</h1>
     <p class="muted">Short one-liner about what you do.</p>
     <p>
       I'm interested in <a href="#work">probability</a>, theoretical CS, and quantum information.

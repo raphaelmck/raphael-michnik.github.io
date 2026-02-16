@@ -235,6 +235,51 @@ a:hover {
 	color: var(--muted);
 }
 
+.courses-section {
+	margin-top: 26px;
+}
+
+.courses-toggle {
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	user-select: none;
+}
+
+.courses-toggle::-webkit-details-marker {
+	display: none;
+}
+
+.courses-toggle::before {
+	content: '';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-left: 5px solid currentColor;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	margin-right: 8px;
+	transition: transform 0.2s ease;
+	flex-shrink: 0;
+}
+
+.courses-section[open] .courses-toggle::before {
+	transform: rotate(90deg);
+}
+
+.courses-content {
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+
+.courses-section[open] .courses-content {
+	max-height: 1000px;
+	opacity: 1;
+}
+
 @media (max-width: 860px) {
 	.shell {
 		grid-template-columns: 1fr;

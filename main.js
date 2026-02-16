@@ -23,22 +23,40 @@ const pages = {
       </li>
     </ul>
 
-    <h2>Courses</h2>
-    <p class="muted">Winter 2026</p>
-    <ul class="list">
-      <li>
-        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/comp-251" target="_blank" rel="noopener">COMP 251</a></div>
-        <div class="item-meta">Algorithms and Data Structures</div>
-      </li>
-      <li>
-        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/comp-330" target="_blank" rel="noopener">COMP 330</a></div>
-        <div class="item-meta">Theory of Computation</div>
-      </li>
-      <li>
-        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/math-240" target="_blank" rel="noopener">MATH 240</a></div>
-        <div class="item-meta">Discrete Structures</div>
-      </li>
-    </ul>
+    <details class="courses-section">
+      <summary class="courses-toggle">
+        <h2 style="display: inline; margin: 0;">Courses</h2>
+      </summary>
+      <div class="courses-content">
+        <p class="muted">Winter 2026</p>
+        <ul class="list">
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/comp-595" target="_blank" rel="noopener">COMP 595</a></div>
+            <div class="item-meta">Advanced Problem Solving for Competitive Programming</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/comp-551" target="_blank" rel="noopener">COMP 551</a></div>
+            <div class="item-meta">Applied Machine Learning</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/comp-310" target="_blank" rel="noopener">COMP 310</a></div>
+            <div class="item-meta">Operating Systems</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/comp-252" target="_blank" rel="noopener">COMP 252</a></div>
+            <div class="item-meta">Algorithms and Data Structures</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/math-387" target="_blank" rel="noopener">MATH 387</a></div>
+            <div class="item-meta">Numerical Analysis</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="https://mcgill.courses/course/math-251" target="_blank" rel="noopener">MATH 251</a></div>
+            <div class="item-meta">Algebra II</div>
+          </li>
+        </ul>
+      </div>
+    </details>
   `,
   mistk: () => `
     <h1>mistk</h1>

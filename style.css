@@ -97,6 +97,11 @@ a:hover {
 	transition: color 0.2s ease, font-weight 0.1s ease;
 }
 
+.tab:hover {
+	color: var(--fg);
+	text-decoration: none;
+}
+
 .tab[aria-current="page"] {
 	color: var(--fg);
 	font-weight: 600;
@@ -157,22 +162,22 @@ a:hover {
 	padding: 0;
 	margin: 0;
 	padding-left: 24px;
-	overflow: hidden;
-	max-height: 0;
-	opacity: 0;
-	transition: max-height 0.3s ease, opacity 0.2s ease, margin 0.2s ease;
-}
-
-.contacts[open] .contact-list {
-	max-height: 200px;
-	opacity: 1;
-	margin-top: 8px;
 }
 
 .contact-list>div {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+.contacts[open] .contact-list>div {
+	max-height: 200px;
+	opacity: 1;
+	padding-top: 8px;
 }
 
 .contact-list a {
@@ -270,14 +275,19 @@ a:hover {
 
 .courses-content {
 	overflow: hidden;
-	max-height: 0;
-	opacity: 0;
-	transition: max-height 0.3s ease, opacity 0.2s ease;
 }
 
-.courses-section[open] .courses-content {
-	max-height: 1000px;
+.courses-content>* {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease, opacity 0.25s ease, margin 0.3s ease;
+}
+
+.courses-section[open] .courses-content>* {
+	max-height: 2000px;
 	opacity: 1;
+	margin-top: 12px;
 }
 
 @media (max-width: 860px) {

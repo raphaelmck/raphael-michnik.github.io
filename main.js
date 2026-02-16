@@ -25,7 +25,7 @@ const pages = {
 
     <details class="courses-section">
       <summary class="courses-toggle">
-        <h2 style="display: inline; margin: 0;">Courses</h2>
+        <h1 style="display: inline; margin: 0; font-size: 20px; font-weight: 650;">Courses</h1>
       </summary>
       <div class="courses-content">
         <p class="muted">Winter 2026</p>

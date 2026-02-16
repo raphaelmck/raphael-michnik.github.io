@@ -190,6 +190,10 @@ a:hover {
 	padding-top: 4px;
 }
 
+.main:focus {
+	outline: none;
+}
+
 .main h1 {
 	font-size: 20px;
 	font-weight: 650;

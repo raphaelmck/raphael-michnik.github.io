@@ -22,6 +22,23 @@ const pages = {
         <div class="item-meta">2025 · Description</div>
       </li>
     </ul>
+
+    <h2>Courses</h2>
+    <p class="muted">Winter 2026</p>
+    <ul class="list">
+      <li>
+        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/comp-251" target="_blank" rel="noopener">COMP 251</a></div>
+        <div class="item-meta">Algorithms and Data Structures</div>
+      </li>
+      <li>
+        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/comp-330" target="_blank" rel="noopener">COMP 330</a></div>
+        <div class="item-meta">Theory of Computation</div>
+      </li>
+      <li>
+        <div class="item-title"><a href="https://www.mcgill.ca/study/2024-2025/courses/math-240" target="_blank" rel="noopener">MATH 240</a></div>
+        <div class="item-meta">Discrete Structures</div>
+      </li>
+    </ul>
   `,
   mistk: () => `
     <h1>mistk</h1>

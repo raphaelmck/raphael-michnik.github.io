@@ -107,14 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fix smooth dropdown animations for all details elements
-  const allDetails = document.querySelectorAll("details");
-  allDetails.forEach((details) => {
+  function setupDetailsAnimation(details) {
+    if (details.dataset.animated) return; // Skip if already set up
+    details.dataset.animated = "true";
+
     const content = details.querySelector(".contact-list > div, .courses-content > div");
     if (content) {
       details.addEventListener("toggle", () => {
         if (details.open) {
           // Opening
-          content.style.height = content.scrollHeight + "px";
+          const height = content.scrollHeight;
+          content.style.height = "0px";
+          requestAnimationFrame(() => {
+            content.style.height = height + "px";
+          });
         } else {
           // Closing - set explicit height first, then transition to 0
           content.style.height = content.scrollHeight + "px";
@@ -131,35 +137,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
-  });
+  }
+
+  // Setup initial details elements
+  const allDetails = document.querySelectorAll("details");
+  allDetails.forEach(setupDetailsAnimation);
 
   // Also listen for dynamically rendered content (on page navigation)
   const observer = new MutationObserver(() => {
     const dynamicDetails = document.querySelectorAll("details");
-    dynamicDetails.forEach((details) => {
-      if (details.dataset.animated) return; // Skip if already set up
-      details.dataset.animated = "true";
-
-      const content = details.querySelector(".contact-list > div, .courses-content > div");
-      if (content) {
-        details.addEventListener("toggle", () => {
-          if (details.open) {
-            content.style.height = content.scrollHeight + "px";
-          } else {
-            content.style.height = content.scrollHeight + "px";
-            requestAnimationFrame(() => {
-              content.style.height = "0px";
-            });
-          }
-        });
-
-        content.addEventListener("transitionend", () => {
-          if (details.open) {
-            content.style.height = "auto";
-          }
-        });
-      }
-    });
+    dynamicDetails.forEach(setupDetailsAnimation);
   });
 
   observer.observe(document.body, { childList: true, subtree: true });

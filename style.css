@@ -176,25 +176,24 @@ a:hover {
 	padding: 0;
 	margin: 0;
 	padding-left: 11px;
-	overflow: hidden;
 }
 
 .contact-list>div {
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.3s ease, padding-top 0.3s ease;
+	display: flex;
+	flex-direction: column;
 	gap: 4px;
-}
-
-.contact-list>div>* {
-	min-height: 0;
-	opacity: 0;
-	transition: opacity 0.25s ease;
+	overflow: hidden;
+	height: 0;
+	transition: height 0.3s ease, padding-top 0.3s ease;
 }
 
 .contacts[open] .contact-list>div {
-	grid-template-rows: 1fr;
 	padding-top: 8px;
+}
+
+.contact-list>div>* {
+	opacity: 0;
+	transition: opacity 0.2s ease;
 }
 
 .contacts[open] .contact-list>div>* {
@@ -295,23 +294,18 @@ a:hover {
 }
 
 .courses-content {
-	display: grid;
-	grid-template-rows: 0fr;
-	transition: grid-template-rows 0.3s ease;
+	overflow: hidden;
 }
 
 .courses-content>div {
-	min-height: 0;
+	height: 0;
 	overflow: hidden;
+	transition: height 0.3s ease;
 }
 
 .courses-content>div>* {
 	opacity: 0;
-	transition: opacity 0.25s ease;
-}
-
-.courses-section[open] .courses-content {
-	grid-template-rows: 1fr;
+	transition: opacity 0.2s ease;
 }
 
 .courses-section[open] .courses-content>div>* {

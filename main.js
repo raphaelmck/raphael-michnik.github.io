@@ -3,26 +3,12 @@ const tabs = Array.from(document.querySelectorAll(".tab"));
 
 const pages = {
   home: () => `
-    <p class="muted">Short one-liner about what you do.</p>
     <p>
-      I'm interested in <a href="#work">probability</a>, theoretical CS, and quantum information.
+      I'm a third-year undergrad at McGill University, studying Computer Science and Mathematics.
     </p>
   `,
   work: () => `
     <h1>Work</h1>
-    <p class="muted">A sentence or two about your research and projects.</p>
-
-    <ul class="list">
-      <li>
-        <div class="item-title"><a href="#">Project or paper title</a></div>
-        <div class="item-meta">2026 · Description or collaborators</div>
-      </li>
-      <li>
-        <div class="item-title"><a href="#">Another work item</a></div>
-        <div class="item-meta">2025 · Description</div>
-      </li>
-    </ul>
-
     <details class="courses-section">
       <summary class="courses-toggle">
         <h1 style="display: inline; margin: 0; font-size: 20px; font-weight: 650;">Courses</h1>
@@ -60,11 +46,10 @@ const pages = {
       </div>
     </details>
   `,
-  mistk: () => `
-    <h1>mistk</h1>
-    <p class="muted">Description of mistk.</p>
+  misc: () => `
+    <h1>misc</h1>
     <p>
-      Content about mistk goes here.
+      A place for things that don't fit in the other sections.
     </p>
   `,
 };
@@ -88,12 +73,10 @@ function render() {
 window.addEventListener("hashchange", render);
 render();
 
-// Theme switching - initialize immediately
 const root = document.documentElement;
 const savedTheme = localStorage.getItem("theme") || "dark";
 root.setAttribute("data-theme", savedTheme);
 
-// Wait for DOM to be ready
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
 
@@ -106,23 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Fix smooth dropdown animations for all details elements
   function setupDetailsAnimation(details) {
-    if (details.dataset.animated) return; // Skip if already set up
+    if (details.dataset.animated) return;
     details.dataset.animated = "true";
 
     const content = details.querySelector(".contact-list > div, .courses-content > div");
     if (content) {
       details.addEventListener("toggle", () => {
         if (details.open) {
-          // Opening
           const height = content.scrollHeight;
           content.style.height = "0px";
           requestAnimationFrame(() => {
             content.style.height = height + "px";
           });
         } else {
-          // Closing - set explicit height first, then transition to 0
           content.style.height = content.scrollHeight + "px";
           requestAnimationFrame(() => {
             content.style.height = "0px";
@@ -130,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Reset height after transition
       content.addEventListener("transitionend", () => {
         if (details.open) {
           content.style.height = "auto";
@@ -139,11 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Setup initial details elements
   const allDetails = document.querySelectorAll("details");
   allDetails.forEach(setupDetailsAnimation);
 
-  // Also listen for dynamically rendered content (on page navigation)
   const observer = new MutationObserver(() => {
     const dynamicDetails = document.querySelectorAll("details");
     dynamicDetails.forEach(setupDetailsAnimation);

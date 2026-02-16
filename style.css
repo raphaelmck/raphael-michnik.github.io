@@ -24,12 +24,10 @@
 	box-sizing: border-box;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
 	display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 html {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
@@ -368,7 +366,6 @@ a:hover {
 	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Show sun in dark mode (click to go to light) */
 :root[data-theme="dark"] .theme-toggle .sun-icon {
 	opacity: 1;
 	transform: rotate(0deg) scale(1);
@@ -379,7 +376,6 @@ a:hover {
 	transform: rotate(90deg) scale(0.5);
 }
 
-/* Show moon in light mode (click to go to dark) */
 :root[data-theme="light"] .theme-toggle .sun-icon {
 	opacity: 0;
 	transform: rotate(-90deg) scale(0.5);

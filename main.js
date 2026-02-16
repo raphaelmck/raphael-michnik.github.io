@@ -28,8 +28,9 @@ const pages = {
         <h1 style="display: inline; margin: 0; font-size: 20px; font-weight: 650;">Courses</h1>
       </summary>
       <div class="courses-content">
-        <p class="muted">Winter 2026</p>
-        <ul class="list">
+        <div>
+          <p class="muted">Winter 2026</p>
+          <ul class="list">
           <li>
             <div class="item-title"><a href="https://mcgill.courses/course/comp-595" target="_blank" rel="noopener">COMP 595</a></div>
             <div class="item-meta">Advanced Problem Solving for Competitive Programming</div>
@@ -55,6 +56,7 @@ const pages = {
             <div class="item-meta">Algebra II</div>
           </li>
         </ul>
+        </div>
       </div>
     </details>
   `,

@@ -24,6 +24,17 @@
 	box-sizing: border-box;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
 html,
 body {
 	height: 100%;
@@ -90,7 +101,7 @@ a:hover {
 
 .tab {
 	color: var(--muted);
-	padding: 6px 8px;
+	padding: 6px 0;
 	border-radius: 8px;
 	width: fit-content;
 	font-weight: 400;
@@ -125,11 +136,13 @@ a:hover {
 .contacts summary {
 	cursor: pointer;
 	color: var(--muted);
-	padding: 6px 8px;
+	padding: 6px 0;
 	border-radius: 8px;
 	width: fit-content;
 	list-style: none;
 	transition: color 0.2s ease;
+	display: flex;
+	align-items: center;
 }
 
 .contacts summary::-webkit-details-marker {
@@ -144,9 +157,10 @@ a:hover {
 	border-left: 5px solid currentColor;
 	border-top: 4px solid transparent;
 	border-bottom: 4px solid transparent;
-	margin-right: 8px;
+	margin-right: 6px;
 	transition: transform 0.2s ease;
 	vertical-align: middle;
+	flex-shrink: 0;
 }
 
 .contacts[open] summary::before {
@@ -161,23 +175,30 @@ a:hover {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	padding-left: 24px;
+	padding-left: 11px;
+	overflow: hidden;
 }
 
 .contact-list>div {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease, padding-top 0.3s ease;
 	gap: 4px;
-	overflow: hidden;
-	max-height: 0;
+}
+
+.contact-list>div>* {
+	min-height: 0;
 	opacity: 0;
-	transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+	transition: opacity 0.25s ease;
 }
 
 .contacts[open] .contact-list>div {
-	max-height: 200px;
-	opacity: 1;
+	grid-template-rows: 1fr;
 	padding-top: 8px;
+}
+
+.contacts[open] .contact-list>div>* {
+	opacity: 1;
 }
 
 .contact-list a {
@@ -264,7 +285,7 @@ a:hover {
 	border-left: 5px solid currentColor;
 	border-top: 4px solid transparent;
 	border-bottom: 4px solid transparent;
-	margin-right: 8px;
+	margin-right: 6px;
 	transition: transform 0.2s ease;
 	flex-shrink: 0;
 }
@@ -274,18 +295,26 @@ a:hover {
 }
 
 .courses-content {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+}
+
+.courses-content>div {
+	min-height: 0;
 	overflow: hidden;
 }
 
-.courses-content>* {
-	max-height: 0;
+.courses-content>div>* {
 	opacity: 0;
-	overflow: hidden;
-	transition: max-height 0.3s ease, opacity 0.25s ease, margin 0.3s ease;
+	transition: opacity 0.25s ease;
 }
 
-.courses-section[open] .courses-content>* {
-	max-height: 2000px;
+.courses-section[open] .courses-content {
+	grid-template-rows: 1fr;
+}
+
+.courses-section[open] .courses-content>div>* {
 	opacity: 1;
 	margin-top: 12px;
 }

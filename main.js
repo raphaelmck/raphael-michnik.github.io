@@ -4,7 +4,7 @@ const tabs = Array.from(document.querySelectorAll(".tab"));
 const pages = {
   home: () => `
     <p>
-      I'm a third-year undergrad at McGill University, studying Computer Science and Mathematics.
+      I'm an undergraduate student at McGill University, studying Computer Science and Mathematics. I'm currently involved in competitive programming at my school, and machine learning research. I also enjoy working out, playing chess, learning languages, and travelling.
     </p>
   `,
   work: () => `

@@ -110,6 +110,14 @@ function render() {
     const on = t.dataset.route === route;
     t.setAttribute("aria-current", on ? "page" : "false");
   });
+
+  // Setup animations for newly rendered details elements
+  const dynamicDetails = content.querySelectorAll("details");
+  dynamicDetails.forEach(details => {
+    if (!details.dataset.animated) {
+      setupDetailsAnimation(details);
+    }
+  });
 }
 
 window.addEventListener("hashchange", render);
@@ -118,6 +126,35 @@ render();
 const root = document.documentElement;
 const savedTheme = localStorage.getItem("theme") || "dark";
 root.setAttribute("data-theme", savedTheme);
+
+function setupDetailsAnimation(details) {
+  if (details.dataset.animated) return;
+  details.dataset.animated = "true";
+
+  const content = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div");
+  if (content) {
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        const height = content.scrollHeight;
+        content.style.height = "0px";
+        requestAnimationFrame(() => {
+          content.style.height = height + "px";
+        });
+      } else {
+        content.style.height = content.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          content.style.height = "0px";
+        });
+      }
+    });
+
+    content.addEventListener("transitionend", () => {
+      if (details.open) {
+        content.style.height = "auto";
+      }
+    });
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
@@ -129,35 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
       root.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
     });
-  }
-
-  function setupDetailsAnimation(details) {
-    if (details.dataset.animated) return;
-    details.dataset.animated = "true";
-
-    const content = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div");
-    if (content) {
-      details.addEventListener("toggle", () => {
-        if (details.open) {
-          const height = content.scrollHeight;
-          content.style.height = "0px";
-          requestAnimationFrame(() => {
-            content.style.height = height + "px";
-          });
-        } else {
-          content.style.height = content.scrollHeight + "px";
-          requestAnimationFrame(() => {
-            content.style.height = "0px";
-          });
-        }
-      });
-
-      content.addEventListener("transitionend", () => {
-        if (details.open) {
-          content.style.height = "auto";
-        }
-      });
-    }
   }
 
   const allDetails = document.querySelectorAll("details");

@@ -267,15 +267,66 @@ a:hover {
 	margin: 0;
 }
 
-.work-section {
-	margin-bottom: 48px;
+.projects-section,
+.courses-section {
+	margin-top: 26px;
 }
 
-.work-section h2 {
-	font-size: 18px;
-	font-weight: 650;
-	margin: 0 0 16px;
-	color: var(--fg);
+.projects-toggle,
+.courses-toggle {
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	user-select: none;
+}
+
+.projects-toggle::-webkit-details-marker,
+.courses-toggle::-webkit-details-marker {
+	display: none;
+}
+
+.projects-toggle::before,
+.courses-toggle::before {
+	content: '';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-left: 5px solid currentColor;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	margin-right: 6px;
+	transition: transform 0.2s ease;
+	flex-shrink: 0;
+}
+
+.projects-section[open] .projects-toggle::before,
+.courses-section[open] .courses-toggle::before {
+	transform: rotate(90deg);
+}
+
+.projects-content,
+.courses-content {
+	overflow: hidden;
+}
+
+.projects-content>div,
+.courses-content>div {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s ease;
+}
+
+.projects-content>div>*,
+.courses-content>div>* {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.projects-section[open] .projects-content>div>*,
+.courses-section[open] .courses-content>div>* {
+	opacity: 1;
+	margin-top: 12px;
 }
 
 .projects-grid {

@@ -1,3 +1,5 @@
+const LAST_UPDATED = "Mar 2026";
+
 const content = document.getElementById("content");
 const tabs = Array.from(document.querySelectorAll(".tab"));
 
@@ -164,4 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const allDetails = document.querySelectorAll("details");
   allDetails.forEach(setupDetailsAnimation);
+
+  document.getElementById("last-updated").textContent = "updated " + LAST_UPDATED;
 });

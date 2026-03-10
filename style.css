@@ -85,11 +85,6 @@ a:hover {
 	margin-top: 4px;
 }
 
-.email {
-	color: var(--muted);
-	width: fit-content;
-}
-
 .nav {
 	display: flex;
 	flex-direction: column;
@@ -123,7 +118,7 @@ a:hover {
 
 .email {
 	color: var(--muted);
-	display: block;
+	width: fit-content;
 	margin-top: 4px;
 }
 
@@ -141,28 +136,6 @@ a:hover {
 	transition: color 0.2s ease;
 	display: flex;
 	align-items: center;
-}
-
-.contacts summary::-webkit-details-marker {
-	display: none;
-}
-
-.contacts summary::before {
-	content: '';
-	display: inline-block;
-	width: 0;
-	height: 0;
-	border-left: 5px solid currentColor;
-	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-	margin-right: 6px;
-	transition: transform 0.2s ease;
-	vertical-align: middle;
-	flex-shrink: 0;
-}
-
-.contacts[open] summary::before {
-	transform: rotate(90deg);
 }
 
 .contacts summary:hover {
@@ -281,11 +254,13 @@ a:hover {
 	user-select: none;
 }
 
+.contacts summary::-webkit-details-marker,
 .projects-toggle::-webkit-details-marker,
 .courses-toggle::-webkit-details-marker {
 	display: none;
 }
 
+.contacts summary::before,
 .projects-toggle::before,
 .courses-toggle::before {
 	content: '';
@@ -300,6 +275,7 @@ a:hover {
 	flex-shrink: 0;
 }
 
+.contacts[open] summary::before,
 .projects-section[open] .projects-toggle::before,
 .courses-section[open] .courses-toggle::before {
 	transform: rotate(90deg);
@@ -483,12 +459,12 @@ a:hover {
 	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-:root[data-theme="dark"] .theme-toggle .sun-icon {
+.theme-toggle .sun-icon {
 	opacity: 1;
 	transform: rotate(0deg) scale(1);
 }
 
-:root[data-theme="dark"] .theme-toggle .moon-icon {
+.theme-toggle .moon-icon {
 	opacity: 0;
 	transform: rotate(90deg) scale(0.5);
 }

@@ -111,13 +111,7 @@ function render() {
     t.setAttribute("aria-current", on ? "page" : "false");
   });
 
-  // Setup animations for newly rendered details elements
-  const dynamicDetails = content.querySelectorAll("details");
-  dynamicDetails.forEach(details => {
-    if (!details.dataset.animated) {
-      setupDetailsAnimation(details);
-    }
-  });
+  content.querySelectorAll("details").forEach(setupDetailsAnimation);
 }
 
 window.addEventListener("hashchange", render);
@@ -131,26 +125,26 @@ function setupDetailsAnimation(details) {
   if (details.dataset.animated) return;
   details.dataset.animated = "true";
 
-  const content = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div");
-  if (content) {
+  const inner = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div");
+  if (inner) {
     details.addEventListener("toggle", () => {
       if (details.open) {
-        const height = content.scrollHeight;
-        content.style.height = "0px";
+        const height = inner.scrollHeight;
+        inner.style.height = "0px";
         requestAnimationFrame(() => {
-          content.style.height = height + "px";
+          inner.style.height = height + "px";
         });
       } else {
-        content.style.height = content.scrollHeight + "px";
+        inner.style.height = inner.scrollHeight + "px";
         requestAnimationFrame(() => {
-          content.style.height = "0px";
+          inner.style.height = "0px";
         });
       }
     });
 
-    content.addEventListener("transitionend", () => {
+    inner.addEventListener("transitionend", () => {
       if (details.open) {
-        content.style.height = "auto";
+        inner.style.height = "auto";
       }
     });
   }
@@ -170,11 +164,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const allDetails = document.querySelectorAll("details");
   allDetails.forEach(setupDetailsAnimation);
-
-  const observer = new MutationObserver(() => {
-    const dynamicDetails = document.querySelectorAll("details");
-    dynamicDetails.forEach(setupDetailsAnimation);
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
 });

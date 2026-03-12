@@ -352,11 +352,6 @@ a:hover {
 	color: var(--fg);
 }
 
-.project-year {
-	font-size: 14px;
-	color: var(--muted);
-}
-
 .project-desc {
 	color: var(--muted);
 	margin: 0 0 12px;

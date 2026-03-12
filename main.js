@@ -31,7 +31,6 @@ const pages = {
               </a>
               <div class="project-header">
                 <h3>blufish</h3>
-                <span class="project-year">2026</span>
               </div>
               <p class="project-desc">A CFR (Counterfactual Regret Minimization) engine for poker written in C++.</p>
               <div class="project-tags">
@@ -48,7 +47,6 @@ const pages = {
               </a>
               <div class="project-header">
                 <h3>autodiff</h3>
-                <span class="project-year">2025</span>
               </div>
               <p class="project-desc">An automatic differentiation engine in Rust using only the standard library, no external dependencies.</p>
               <div class="project-tags">

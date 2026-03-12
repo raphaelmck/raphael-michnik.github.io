@@ -311,6 +311,7 @@ a:hover {
 }
 
 .project-card {
+	position: relative;
 	padding: 16px;
 	border: 1px solid var(--line);
 	border-radius: 8px;
@@ -319,6 +320,22 @@ a:hover {
 
 .project-card:hover {
 	border-color: var(--muted);
+}
+
+.project-link {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	color: var(--muted);
+	transition: color 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.project-link:hover {
+	color: var(--fg);
+	text-decoration: none;
 }
 
 .project-header {
@@ -397,6 +414,10 @@ a:hover {
 .course-code:hover {
 	color: var(--link);
 	text-decoration: none;
+}
+
+.course-item:hover .course-code {
+	text-decoration: underline;
 }
 
 .course-name {

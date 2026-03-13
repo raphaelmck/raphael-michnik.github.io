@@ -30,7 +30,7 @@ const pages = {
                 </svg>
               </a>
               <div class="project-header">
-                <h3>blufish</h3>
+                <h3>bluefish</h3>
               </div>
               <p class="project-desc">A CFR (Counterfactual Regret Minimization) engine for poker written in C++.</p>
               <div class="project-tags">

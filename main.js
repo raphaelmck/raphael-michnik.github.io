@@ -63,6 +63,18 @@ const pages = {
       </div>
     </details>
 
+    <details class="youtube-section">
+      <summary class="youtube-toggle">
+        <h2 style="display: inline; margin: 0; font-size: 18px; font-weight: 650;">YouTube</h2>
+      </summary>
+      <div class="youtube-content">
+        <div>
+          <p class="youtube-desc">Videos on math, programming, and whatever I'm thinking about.</p>
+          <a href="https://www.youtube.com/@Raph30314" target="_blank" rel="noopener" class="youtube-link">@Raph30314</a>
+        </div>
+      </div>
+    </details>
+
     <details class="courses-section">
       <summary class="courses-toggle">
         <h2 style="display: inline; margin: 0; font-size: 18px; font-weight: 650;">Courses</h2>
@@ -103,7 +115,6 @@ const pages = {
     </details>
   `,
   misc: () => `
-    <h1>misc</h1>
     <p>
       A place for things that don't fit in the other sections.
     </p>
@@ -139,7 +150,7 @@ function setupDetailsAnimation(details) {
   if (details.dataset.animated) return;
   details.dataset.animated = "true";
 
-  const inner = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div");
+  const inner = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div, .youtube-content > div");
   if (inner) {
     details.addEventListener("toggle", () => {
       if (details.open) {

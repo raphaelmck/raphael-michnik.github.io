@@ -245,12 +245,14 @@ a:hover {
 }
 
 .projects-section,
-.courses-section {
+.courses-section,
+.youtube-section {
 	margin-top: 26px;
 }
 
 .projects-toggle,
-.courses-toggle {
+.courses-toggle,
+.youtube-toggle {
 	cursor: pointer;
 	list-style: none;
 	display: flex;
@@ -260,13 +262,15 @@ a:hover {
 
 .contacts summary::-webkit-details-marker,
 .projects-toggle::-webkit-details-marker,
-.courses-toggle::-webkit-details-marker {
+.courses-toggle::-webkit-details-marker,
+.youtube-toggle::-webkit-details-marker {
 	display: none;
 }
 
 .contacts summary::before,
 .projects-toggle::before,
-.courses-toggle::before {
+.courses-toggle::before,
+.youtube-toggle::before {
 	content: '';
 	display: inline-block;
 	width: 0;
@@ -281,32 +285,54 @@ a:hover {
 
 .contacts[open] summary::before,
 .projects-section[open] .projects-toggle::before,
-.courses-section[open] .courses-toggle::before {
+.courses-section[open] .courses-toggle::before,
+.youtube-section[open] .youtube-toggle::before {
 	transform: rotate(90deg);
 }
 
 .projects-content,
-.courses-content {
+.courses-content,
+.youtube-content {
 	overflow: hidden;
 }
 
 .projects-content>div,
-.courses-content>div {
+.courses-content>div,
+.youtube-content>div {
 	height: 0;
 	overflow: hidden;
 	transition: height 0.3s ease;
 }
 
 .projects-content>div>*,
-.courses-content>div>* {
+.courses-content>div>*,
+.youtube-content>div>* {
 	opacity: 0;
 	transition: opacity 0.2s ease;
 }
 
 .projects-section[open] .projects-content>div>*,
-.courses-section[open] .courses-content>div>* {
+.courses-section[open] .courses-content>div>*,
+.youtube-section[open] .youtube-content>div>* {
 	opacity: 1;
 	margin-top: 12px;
+}
+
+.youtube-desc {
+	color: var(--muted);
+	margin: 0 0 10px;
+	font-size: 15px;
+}
+
+.youtube-link {
+	font-size: 15px;
+	color: var(--muted);
+	transition: color 0.2s ease;
+}
+
+.youtube-link:hover {
+	color: var(--fg);
+	text-decoration: none;
 }
 
 .projects-grid {

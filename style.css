@@ -1,5 +1,5 @@
 :root {
-	--bg: #01111f;
+	--bg: #0d2233;
 	--fg: #e8edf2;
 	--muted: #94a3b8;
 	--line: rgba(232, 237, 242, .12);
@@ -16,7 +16,7 @@
 	--fg: #1a1a1a;
 	--muted: #6c757d;
 	--line: rgba(26, 26, 26, .12);
-	--link: #01111f;
+	--link: #18425e;
 	--focus: rgba(1, 17, 31, .25);
 }
 
@@ -203,8 +203,12 @@ a:hover {
 }
 
 .main p {
-	margin: 0 0 12px;
+	margin: 0 0 16px;
 	color: var(--fg);
+}
+
+.main p + p {
+	margin-top: 8px;
 }
 
 .main .muted {

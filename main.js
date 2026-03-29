@@ -8,6 +8,10 @@ const pages = {
     <p>
       I'm an undergraduate student at McGill University, studying Computer Science and Mathematics. I'm currently involved in competitive programming at my school, and machine learning research. I also enjoy working out, playing chess, learning languages, and travelling.
     </p>
+
+    <p> 
+      Find my projects, research, professional experience, and more in the sections on the left.
+    </p>
   `,
   work: () => `
     <div class="work-intro">

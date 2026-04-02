@@ -1,4 +1,4 @@
-const LAST_UPDATED = "Mar 2026";
+const LAST_UPDATED = "Apr 2026";
 
 const content = document.getElementById("content");
 const tabs = Array.from(document.querySelectorAll(".tab"));

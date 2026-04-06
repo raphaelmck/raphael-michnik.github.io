@@ -151,28 +151,69 @@ function setupDetailsAnimation(details) {
   details.dataset.animated = "true";
 
   const inner = details.querySelector(".contact-list > div, .courses-content > div, .projects-content > div, .youtube-content > div");
-  if (inner) {
+  if (!inner) return;
+
+  const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
+
+  if (details.classList.contains("contacts")) {
+    // Intercept close on mobile: animate out before hiding
+    details.querySelector("summary").addEventListener("click", (e) => {
+      if (details.open && isMobile()) {
+        e.preventDefault();
+        inner.dataset.closing = "true";
+        setTimeout(() => {
+          delete inner.dataset.closing;
+          details.classList.remove("is-open");
+          details.open = false;
+        }, 230);
+      }
+    });
+
     details.addEventListener("toggle", () => {
+      if (details.open && isMobile()) {
+        // Element starts at opacity:0 (CSS default); add class in next frame to trigger transition
+        requestAnimationFrame(() => {
+          details.classList.add("is-open");
+        });
+        return;
+      }
+      // Desktop: height animation
       if (details.open) {
         const height = inner.scrollHeight;
         inner.style.height = "0px";
-        requestAnimationFrame(() => {
-          inner.style.height = height + "px";
-        });
+        requestAnimationFrame(() => { inner.style.height = height + "px"; });
       } else {
         inner.style.height = inner.scrollHeight + "px";
-        requestAnimationFrame(() => {
-          inner.style.height = "0px";
-        });
+        requestAnimationFrame(() => { inner.style.height = "0px"; });
       }
     });
 
     inner.addEventListener("transitionend", () => {
-      if (details.open) {
-        inner.style.height = "auto";
-      }
+      if (details.open && !isMobile()) inner.style.height = "auto";
     });
+    return;
   }
+
+  details.addEventListener("toggle", () => {
+    if (details.open) {
+      const height = inner.scrollHeight;
+      inner.style.height = "0px";
+      requestAnimationFrame(() => {
+        inner.style.height = height + "px";
+      });
+    } else {
+      inner.style.height = inner.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        inner.style.height = "0px";
+      });
+    }
+  });
+
+  inner.addEventListener("transitionend", () => {
+    if (details.open) {
+      inner.style.height = "auto";
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
